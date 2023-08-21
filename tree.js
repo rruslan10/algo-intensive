@@ -44,7 +44,7 @@ const tree = {
 	},
 }
 
-// Рекурсия
+// DFS: Рекурсия
 function solutionRecursion(node) {
 	if (node) {
 		console.log(node.value)
@@ -54,7 +54,7 @@ function solutionRecursion(node) {
 	}
 }
 
-// Стек
+// DFS: Стек
 function solutionStack(node) {
 	const stack = [node]
 
@@ -68,6 +68,22 @@ function solutionStack(node) {
 	}
 }
 
+// BFS: очередь
+function solutionBFS(node) {
+	const queue = [node]
+
+	while (queue.length) {
+		const curNode = queue.shift()
+
+		console.log(curNode.value)
+
+		if (curNode.left) queue.push(curNode.left)
+		if (curNode.right) queue.push(curNode.right)
+	}
+}
+
 solutionRecursion(tree)
 console.log()
 solutionStack(tree)
+console.log()
+solutionBFS(tree)
